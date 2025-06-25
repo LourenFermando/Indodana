@@ -14,14 +14,14 @@ test.describe('Indodana_testing automation', () => {
     page.on('popup', async popup => {
       await popup.waitForLoadState();
     });
+    await page.goto('https://www.cermati.com/app/gabung');
   });
 
   test.afterAll(async () => {
-    await browserContext.close();
+    //await browserContext.close();
   });
   
   test('Check all attributes', async () => {
-    await page.goto('https://www.cermati.com/app/gabung');
     await funindondana.Validation('//img[@alt="cermati.com"]');
     await funindondana.Validation('//div[@id="top-beranda-logo"]');
     await funindondana.Validation('//a[@href="/app/products"]');
@@ -37,7 +37,6 @@ test.describe('Indodana_testing automation', () => {
     await funindondana.Validation('//button[@data-button-name="register-new"]');
   });
   test('input', async () => {
-    await page.goto('https://www.cermati.com/app/gabung');
     await funindondana.input('//input[@id="mobilePhone"]','08182271833')
     await funindondana.input('//input[@id="email"]','Louren_Indodana@gmail.com');
     await funindondana.input('//input[@id="firstName"]','Louren');
