@@ -9,8 +9,7 @@ test.describe('Indodana_testing automation', () => {
   test.beforeAll(async ({ browser }: { browser: Browser }) => {
     browserContext = await browser.newContext();
     page = await browserContext.newPage();
-    funindondana = new Indodana(page); // Correct initialization
-
+    funindondana = new Indodana(page); 
     page.on('popup', async popup => {
       await popup.waitForLoadState();
     });
@@ -43,6 +42,5 @@ test.describe('Indodana_testing automation', () => {
     await funindondana.input('//input[@id="lastName"]','Fermando');
     await funindondana.enable('//button[@data-button-name="register-new"]'); 
     await funindondana.click('//button[@data-button-name="register-new"]'); 
-    await page.waitForTimeout(10000);
   });
 });
